@@ -1,0 +1,54 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>.: Dish Project :.</title>
+
+<div th:replace="fragments/header :: header-css" />
+
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" />
+
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>
+				<span th:text="${project.projectName}"></span>
+			</h1>
+
+			<ul>
+				<li><b>Fecha de Inicio:&nbsp;</b><span
+					th:text="${project.startDate}"></span></li>
+				<li><b>Project Manager:&nbsp;</b><span
+					th:text="${project.projectManager}"></span></li>
+				<li><b>Descripci&oacute;n:&nbsp;</b><span
+					th:text="${project.projectDescription}"></span></li>
+				<li><b>Tecnologias:&nbsp;</b>
+					<ul>
+						<div th:if="${project.technologies.empty}">
+							<li>Sin Tecnologias</li>
+						</div>
+						<div th:each="tech : ${project.technologies}">
+							<li><span th:text="${tech.technologyName}"></span></li>
+						</div>
+					</ul></li>
+				<li><b>Desarrolladores:&nbsp;</b>
+					<ul>
+						<div th:if="${project.developers.empty}">
+							<li>Sin Desarrolladores</li>
+						</div>
+						<div th:each="dev : ${project.developers}">
+							<li><span th:text="${dev.developerName}"></span></li>
+						</div>
+					</ul></li>
+			</ul>
+
+			<a class="btn btn-primary" href="#" style="float: right;"
+				th:href="@{/hello}"> Regresar </a>
+		</div>
+	</div>
+
+</body>
+</html>

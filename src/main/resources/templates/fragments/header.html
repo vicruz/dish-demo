@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <div th:fragment="header-css">
+        <!-- this is header-css -->
+        <link rel="stylesheet" type="text/css"
+              href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css"
+              href="../webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" th:href="@{/css/main.css}"
+              href="../../css/main.css" />
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+    </div>
+</head>
+<body>
+<div th:fragment="header">
+    <!-- this is header -->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" >Dish Projects</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+            	<span sec:authorize="isAuthenticated()">
+	                <ul class="nav navbar-nav">
+	                    <li class="active"><a th:href="@{/hello}">Home</a></li>
+	                    <li class="active"><a th:href="@{/auth/all}">Auth Rest</a></li>
+	                </ul>
+	                    	<form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post" style="float: right;">
+						    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerrar sesi&oacute;n</button>
+						    </form>	   
+	             	
+            	</span>
+            	<span sec:authorize="!isAuthenticated()">
+	                <ul class="nav navbar-nav">
+	                    <li class="active"><a th:href="@{/public/all}">Public Rest</a></li>
+	                </ul>
+            	</span>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>

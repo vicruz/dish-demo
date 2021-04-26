@@ -1,0 +1,76 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>.: Dish Projects :.</title>
+
+<div th:replace="fragments/header :: header-css" />
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" />
+
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>
+				<span th:text="${title}">
+			</h1>
+
+			<form action="#" th:action="@{/save}" method="post"
+				th:object="${project}">
+				<div class="col-12">
+					<div class="form-row">
+						<div class="form-group col-12 col-md-3 form-options">
+							<input type="hidden" th:field="*{projectId}" id="projectId">
+							<label>Nombre del Proyecto:</label> <input class="form-control"
+								type="text" th:field="*{projectName}" />
+						</div>
+
+						<div class="form-group col-12 col-md-3 form-options">
+							<label>Fecha de Inicio (dd/MM/yyyy):</label>
+							<div class="input-group date">
+								<input type="text" class="form-control" id="startDate"
+									th:field="*{startDate}" />
+							</div>
+						</div>
+
+						<div class="form-group col-12 col-md-3 form-options">
+							<label>Project Manager:</label> <input type="text"
+								class="form-control" th:field="*{projectManager}" /><br />
+						</div>
+
+						<div class="form-group col-12 col-md-12 form-options">
+							<label>Descripci&oacute;n:</label>
+							<textarea class="form-control" rows="5" cols="25"
+								th:field="*{projectDescription}"></textarea>
+						</div>
+
+						<div class="form-group col-12 col-md-6 form-options">
+							<label>Tecnologias:</label>
+							<ul>
+								<li th:each="tech : ${allTech}"><input type="checkbox"
+									th:field="*{technologies}" th:value="${tech.technologyId}" />
+									<label th:text="${tech.technologyName}">JAVA</label></li>
+							</ul>
+						</div>
+
+						<div class="form-group col-12 col-md-6 form-options">
+							<label>Desarrolladores:</label>
+							<ul>
+								<li th:each="dev : ${allDevs}"><input type="checkbox"
+									th:field="*{developers}" th:value="${dev.developerId}" />
+									<label th:text="${dev.developerName}"></label></li>
+							</ul>
+						</div>
+
+						<div class="form-group col-12 col-md-3 form-options">
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
