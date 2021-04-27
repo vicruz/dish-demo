@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.demo.dish.model.Developer;
 
 /**
- * 
+ * Repositorio de la tabla DEVELOPER
  * @author Victor Cruz
  *
  */

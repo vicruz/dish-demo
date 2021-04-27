@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 
+ * Entidad de la tabla PROJECT_DEVELOPER
  * @author Victor Cruz
  *
  */

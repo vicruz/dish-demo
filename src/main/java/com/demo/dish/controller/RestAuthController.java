@@ -16,7 +16,7 @@ import com.demo.dish.model.Technology;
 import com.demo.dish.service.ProjectService;
 
 /**
- * 
+ * Rest controller para obtener el Json con autenticacion
  * @author Victor Cruz
  *
  */
@@ -27,13 +27,17 @@ public class RestAuthController {
 	@Autowired
 	private ProjectService projectService;
 	
+	/**
+	 * Servicio para obtener el json con los datos de todos los proyectos
+	 * @return JSON con los datos del proyecto
+	 */
 	@GetMapping(path = "/all")
 	public List<ProjectDto> getAll(){
 		List<Project> lst = projectService.getAll();
 		List<ProjectDto> lstDto = new ArrayList<>();
 		for(Project pr : lst) {
 			lstDto.add(new ProjectDto(pr.getProjectId(), pr.getProjectName(), pr.getStartDate(),
-					pr.getProjectName(), pr.getProjectDescription(),
+					pr.getProjectManager(), pr.getProjectDescription(),
 					pr.getTechnologies().stream().map(Technology::getTechnologyName).collect(Collectors.toList()), 
 					pr.getDevelopers().stream().map(Developer::getDeveloperName).collect(Collectors.toList())));
 		}

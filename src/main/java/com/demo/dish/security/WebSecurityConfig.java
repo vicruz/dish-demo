@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 /**
- * 
+ * Seguridad del proyecto
  * @author Victor Cruz
  *
  */
@@ -36,7 +36,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll();
 	}
 
-	
+	/**
+	 * Definicion de los usuarios y passwords
+	 */
 	@Bean
 	@Override
 	public UserDetailsService userDetailsService() {
@@ -56,6 +58,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new InMemoryUserDetailsManager(user, admin);
 	}
 	
+	/**
+	 * Configuracion de los enlaces publicos
+	 */
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.demo.dish.model.Technology;
 
 /**
- * 
+ * Repositorio de la tabla TECHNOLOGY
  * @author Victor Cruz
  *
  */

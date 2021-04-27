@@ -14,7 +14,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 
+ * DTO para mostrar al usuario datos del proyecto
  * @author Victor Cruz
  *
  */

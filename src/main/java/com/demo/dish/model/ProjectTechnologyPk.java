@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 
+ * Llave primaria de la tabla PROJECT_TECHNOLOGY
  * @author Victor Cruz
  *
  */

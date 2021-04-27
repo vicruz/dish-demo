@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
@@ -24,7 +26,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 
+ * Entidad de la tabla PROJECT
  * @author Victor Cruz
  *
  */
@@ -49,8 +51,9 @@ public class Project implements Serializable{
 	@Column(name = "PROJECT_NAME")
 	private String projectName;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "START_DATE")
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date startDate;
 	
 	@Column(name = "PROJECT_MANAGER")

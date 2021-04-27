@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * 
+ * Entidad de la tabla DEVELOPER
  * @author Victor Cruz
  *
  */

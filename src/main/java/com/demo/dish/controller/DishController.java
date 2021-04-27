@@ -16,7 +16,7 @@ import com.demo.dish.service.ProjectService;
 import com.demo.dish.service.TechnologyService;
 
 /**
- * 
+ * Controller para manejar las peticiones de las paginas
  * @author Victor Cruz
  *
  */
@@ -32,22 +32,41 @@ public class DishController {
 	@Autowired
 	private DeveloperService developerService;
 	
+	/**
+	 * Request para la pagina de inicio
+	 * @return Redireccion a la pagina inicial
+	 */
 	@GetMapping("/")
 	public String root() {
 		return "redirect:/hello";
 	}
 	
+	/**
+	 * Request para la pagina de inicio
+	 * @return Redireccion a la pagina inicial
+	 */
 	@GetMapping("/home")
 	public String rootHome() {
 		return "redirect:/hello";
 	}
 	
+	/**
+	 * Pagina con la tabla de proyecto
+	 * @param model Atributos de la pagina 
+	 * @return Nombre de la ruta que cargara
+	 */
 	@GetMapping("/hello")
 	public String hello(Model model) {
 		model.addAttribute("projects", projectService.getAll());
 		return "hello";
 	}
 	
+	/**
+	 * Pagina para editar el proyecto
+	 * @param model Atributos de la pagina
+	 * @param id Identificador del proyecto
+	 * @return Nombre de la ruta que cargara
+	 */
 	@GetMapping("edit/{id}")
 	public String edit(Model model, @PathVariable Long id) {
 		System.out.println("edit " + id);
@@ -58,6 +77,11 @@ public class DishController {
 		return "edit";
 	}
 	
+	/**
+	 * Pagina para crear el proyecto
+	 * @param model Atributos de la pagina
+	 * @return Nombre de la ruta que cargara
+	 */
 	@GetMapping("create")
 	public String create(Model model) {
 		Project dto = new Project();
@@ -70,12 +94,23 @@ public class DishController {
 		return "edit";
 	}
 	
+	/**
+	 * Borrar un proyecto
+	 * @param id Identificador del proyecto
+	 * @return Redireccion a la pagina inicial
+	 */
 	@GetMapping("delete/{id}")
 	public String delete(@PathVariable Long id) {
 		projectService.deleteById(id);
 		return "redirect:/hello";
 	}
 	
+	/**
+	 * Pagina de usuario para visualizar los datos
+	 * @param model Atributos de la pagina
+	 * @param id Identificador del proyecto
+	 * @return Nombre de la ruta que cargara
+	 */
 	@GetMapping("view/{id}")
 	public String view(Model model, @PathVariable Long id) {
 		System.out.println("view " + id);
@@ -83,6 +118,11 @@ public class DishController {
 		return "view";
 	}
 	
+	/**
+	 * Guardar/Actualizar el proyecto
+	 * @param project Datos del proyecto
+	 * @return Nombre de la ruta que cargara
+	 */
 	@PostMapping("save")
 	public String save(@ModelAttribute("project") Project project) {
 		if(project.getProjectId()==null)

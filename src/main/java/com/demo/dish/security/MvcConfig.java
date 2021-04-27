@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * 
+ * Configuracion MVC donde se mapea ruta con vista
  * @author Victor Cruz
  *
  */
